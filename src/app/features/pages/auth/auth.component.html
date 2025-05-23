@@ -1,0 +1,29 @@
+<div class="auth">
+  <form [formGroup]="formGroup" (ngSubmit)="login()">
+    <div class="auth__form-fields">
+      <mat-form-field>
+        <mat-label>Логин</mat-label>
+        <input
+          matInput
+          formControlName="login"
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Пароль</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          required
+        >
+      </mat-form-field>
+
+      @if (formGroup.invalid) {
+        <mat-error class="auth__error">{{ errorSignals() }}</mat-error>
+      }
+    </div>
+
+    <button mat-raised-button type="submit" [disabled]="formGroup.invalid">Войти</button>
+  </form>
+</div>
